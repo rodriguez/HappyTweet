@@ -23,7 +23,7 @@ class EmotionCalc:
         return max(test, key=test.get)
 
 
-def UserData(TwitterHandle):
+def user_data(TwitterHandle):
     # BREAK UP TWITTER DATA HERE probs using the API
     # i.e. EmotionCalc(Paul, 34, Boston, "Pie is good.")
     # If something is null, return "N/A"
@@ -38,11 +38,12 @@ def UserData(TwitterHandle):
     personData += EmotionCalc.location
     personData += EmotionCalc.tweet
     personData += EmotionCalc.mostlikelyemotion()
+    return personData
 
 
-def TotalData(AllTweets):
+def total_data(AllTweets):
     allData = []
     for x in AllTweets:
-        allData += [UserData(x)]
+        allData += [user_data(x)]
 
     return allData
