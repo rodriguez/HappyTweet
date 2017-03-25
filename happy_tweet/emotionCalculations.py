@@ -9,11 +9,6 @@ def individual_happiness(tweet_data):
         date_happy[x["time"]] = max_emote["joy"]
     return date_happy
 
-def emo_tweet(tweet):
-    # return indicoio.emotion(tweet)
-    print("Here" + tweet)
-    return 0
-
 def average_dict(d):
     r = {}
     for x in d:
@@ -26,7 +21,7 @@ def average_dict(d):
     rr = {}
     for k, v in r.items():
         rr[k] = sum(v)/len(v)*1.0
-    return rr
+    return max(rr, key=rr.get)
 
 
 def avg_emotion(user):

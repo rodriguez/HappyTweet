@@ -60,6 +60,7 @@ class User:
             'user_id': self.user_id,
             'tweets': self.tweets
         })
+class Others(User):
 
 
 class Search:
