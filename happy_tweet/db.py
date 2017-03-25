@@ -10,5 +10,7 @@ def insert(value, collection):
     return insert_id
 
 
-def get_all(collection):
-    pass
+def search(key, collection):
+    col = db[collection]
+    data = col.find_one(key)
+    return data

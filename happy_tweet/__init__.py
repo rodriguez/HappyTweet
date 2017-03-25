@@ -7,14 +7,11 @@ from happy_tweet.twitter import User
 app = Flask(__name__)
 
 
-# @app.route('/analyze')
-# def analyze_emo():
-#     name = request.args.get('name') or "Paul"
-#     age = request.args.get('age') or "50"
-#     location = request.args.get('location') or "New York, NY"
-#     tweet = request.args.get('tweet') or "I hate the guy on the train"
-#     person = EmotionCalc(name, age, location, tweet)
-#     return person.mostlikelyemotion()
+@app.route('/analyze')
+def analyze_emo():
+    user = get_user('')
+
+
 
 @app.route('/user/<username>')
 def user_into(username):

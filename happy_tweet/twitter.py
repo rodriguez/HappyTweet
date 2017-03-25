@@ -3,7 +3,7 @@
 import tweepy
 from flask.json import dumps
 
-from happy_tweet.db import insert
+from happy_tweet.db import insert, search
 from happy_tweet.emotions import EmotionCalc
 
 # Twitter secrets
@@ -35,7 +35,8 @@ class User:
         self.tweets = [self.process_tweet(tweet) for tweet in tweets]
         self.insert_tweet({
             '_id': "u_" + str(self.user_id),
-            'tweets': self.tweets
+            'tweets': self.tweets,
+            'user': self.user._json
         })
         return tweets
 
@@ -64,6 +65,14 @@ class User:
 class Search:
     pass
 
+
+def get_user(username):
+    """
+    If there is the user in the database, we will return that user, else error
+    :param username: Twitter handle
+    :return: User object
+    """
+    user = search({'username': username})
 
 def test():
     # Test with user '@gaspardetienne9'
