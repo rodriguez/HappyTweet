@@ -24,6 +24,11 @@ def average_dict(d):
     return max(rr, key=rr.get)
 
 
+def greatest_of_avg(d):
+    rr = average_dict(d)
+    return max(rr, key=rr.get)
+
+
 def avg_emotion(user):
     ts = user.tweets
     if ts:
