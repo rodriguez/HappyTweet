@@ -16,7 +16,7 @@ class EmotionCalc:
 
     def mostlikelyemotion(self):
         # single example
-        print(indicoio.emotion(self.tweet))
+        # print(indicoio.emotion(self.tweet))
         test = indicoio.emotion(self.tweet)
 
         # batch example
@@ -24,5 +24,4 @@ class EmotionCalc:
         #    "I did it. I got into Grad School. Not just any program, but a GREAT program. :-)",
         #    "Like seriously my life is bleak, I have been unemployed for almost a year."
         # ])
-        print(max(test, key=test.get))
-        
+        return max(test, key=test.get)
