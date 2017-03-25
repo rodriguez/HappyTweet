@@ -4,7 +4,8 @@ indicoio.config.api_key = 'b2ff22240dc7532835daca4712d48bfb'
 
 
 class EmotionCalc:
-    def __init__(self, age, tweet, location):
+    def __init__(self, name, age, location, tweet, ):
+        self.name = name
         self.tweet = tweet
         self.age = age
         self.location = location
@@ -19,9 +20,29 @@ class EmotionCalc:
         # print(indicoio.emotion(self.tweet))
         test = indicoio.emotion(self.tweet)
 
-        # batch example
-        # emolist = indicoio.emotion([
-        #    "I did it. I got into Grad School. Not just any program, but a GREAT program. :-)",
-        #    "Like seriously my life is bleak, I have been unemployed for almost a year."
-        # ])
         return max(test, key=test.get)
+
+
+def UserData(TwitterHandle):
+    # BREAK UP TWITTER DATA HERE probs using the API
+    # i.e. EmotionCalc(Paul, 34, Boston, "Pie is good.")
+    # If something is null, return "N/A"
+
+    # [Paul, 34, Boston, "Pie is good."]
+    # [Cindy, nullorwhatever ,Boston, "Cake is good."]
+    # if null, increment the index
+
+    personData = []
+    personData += EmotionCalc.name
+    personData += EmotionCalc.age
+    personData += EmotionCalc.location
+    personData += EmotionCalc.tweet
+    personData += EmotionCalc.mostlikelyemotion()
+
+
+def TotalData(AllTweets):
+    allData = []
+    for x in AllTweets:
+        allData += [UserData(x)]
+
+    return allData
