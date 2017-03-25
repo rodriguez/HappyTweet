@@ -22,6 +22,12 @@ def user_data(twitter_handle):
     personData += EmotionCalc.mostlikelyemotion()
     return personData
 
+def individual_happiness(tweet_data):
+    date_happy = {}
+    for x in tweet_data:
+        max_emote = indicoio.emotion(x["text"])
+        date_happy[x["time"]] = max_emote["joy"]
+    return date_happy
 
 def emo_tweet(tweet):
     # return indicoio.emotion(tweet)
