@@ -4,7 +4,7 @@ indicoio.config.api_key = 'b2ff22240dc7532835daca4712d48bfb'
 
 
 class EmotionCalc:
-    def __init__(self, name, age, location, tweet, ):
+    def __init__(self, name, age, location, tweet):
         self.name = name
         self.tweet = tweet
         self.age = age
