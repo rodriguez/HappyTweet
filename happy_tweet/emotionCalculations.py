@@ -1,4 +1,5 @@
 import indicoio
+from happy_tweet.twitter import User
 
 indicoio.config.api_key = 'b2ff22240dc7532835daca4712d48bfb'
 
@@ -49,5 +50,14 @@ def total_data(AllTweets):
     return allData
 
 
-def individual_happiness(list_of_tweets):
-    date_happy = [[x,indicoio.emotion(x)] for x in list_of_tweets]
+def individual_happiness(tweet_data):
+    date_happy = {}
+    # [ { ] { } { }]
+    # { } { }
+    # key, value key, value
+    # return dict["time"], indico.emotion(dict["text"])
+
+u = User('@gaspardetienne9')
+print(individual_happiness(u.get_tweets()))
+
+
