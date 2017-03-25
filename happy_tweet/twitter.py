@@ -1,6 +1,8 @@
 # Todo: print(age)
 
 import tweepy
+from flask.json import dumps
+
 from happy_tweet.db import insert
 from happy_tweet.emotions import EmotionCalc
 
@@ -29,9 +31,12 @@ class User:
         return self.user
 
     def get_tweets(self):
-        tweets = api.user_timeline()
-        tweets = [self.process_tweet(tweet) for tweet in tweets]
-        tweets = self.insert_tweet(tweets)
+        tweets = self.user.timeline()
+        self.tweets = [self.process_tweet(tweet) for tweet in tweets]
+        self.insert_tweet({
+            '_id': "u_" + str(self.user_id),
+            'tweets': self.tweets
+        })
         return tweets
 
     def process_tweet(self, tweet):
@@ -43,13 +48,17 @@ class User:
             "emotions": EmotionCalc.get_all_emotions(tweet.text)
         }
 
-    def insert_tweet(self, tweets):
-        user_timeline = {
-            '_id': "u_" + str(self.user_id),
-            'tweets': tweets
-        }
-        insert(user_timeline, 'tweets')
-        return user_timeline
+    @staticmethod
+    def insert_tweet(value):
+        insert(value, 'tweets')
+        return
+
+    def to_json(self):
+        return dumps({
+            'username': self.username,
+            'user_id': self.user_id,
+            'tweets': self.tweets
+        })
 
 
 class Search:
