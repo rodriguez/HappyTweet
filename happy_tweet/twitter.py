@@ -3,14 +3,15 @@ import json
 
 # todo: print(age)
 # The consumer keys and access tokens which are used
-consumer_key = 'nQ09IRj8CzPCG1bxUIva3HSKW'
-consumer_secret = 'CfAR02mGVYsnOcnb1DDOjgeYGLayyfwVqqFAtA8WBluc5Tpyeo'
-access_token = '1564136786-INIswUQ1fRFeIv8QhVDtBr6yGeRwP6sUdeUxkfm'
-access_token_secret = '0BU8huIvlY7S94ed5s8muSqmlctf4w8aSv4hh6YRaMp6R'
+CONSUMER_KEY = 'nQ09IRj8CzPCG1bxUIva3HSKW'
+CONSUMER_SECRET = 'CfAR02mGVYsnOcnb1DDOjgeYGLayyfwVqqFAtA8WBluc5Tpyeo'
+ACCESS_TOKEN = '1564136786-INIswUQ1fRFeIv8QhVDtBr6yGeRwP6sUdeUxkfm'
+ACCESS_TOKEN_SECRET = '0BU8huIvlY7S94ed5s8muSqmlctf4w8aSv4hh6YRaMp6R'
 
-auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
-auth.set_access_token(access_token, access_token_secret)
+auth = tweepy.OAuthHandler(CONSUMER_KEY, CONSUMER_SECRET)
+auth.set_access_token(ACCESS_TOKEN, ACCESS_TOKEN_SECRET)
 api = tweepy.API(auth)
+
 
 
 class User:
@@ -20,6 +21,10 @@ class User:
         self.user_id = self.user.id
 
     def get_data(self):
+        """
+        Get data for an user
+        :return: A dict of user data
+        """
         return self.user
 
     def get_tweets(self):
@@ -44,6 +49,7 @@ def test():
     # Test with user '@gaspardetienne9'
     u = User('@gaspardetienne9')
     print(u.get_tweets())
+    u.get_data()
 
 
 if __name__ == '__main__':
