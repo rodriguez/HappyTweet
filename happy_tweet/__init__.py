@@ -20,5 +20,9 @@ def user_into(username):
     return render_template('user.html', user=user.to_json())
 
 
+@app.route('/chart')
+def get_chart():
+    return render_template('chart.html')
+
 if __name__ == "__main__":
     app.run(debug=True)
