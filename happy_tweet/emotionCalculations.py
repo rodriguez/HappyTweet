@@ -47,3 +47,17 @@ def total_data(AllTweets):
         allData += [user_data(x)]
 
     return allData
+
+
+def individual_happiness(list_of_tweets):
+    list_of_dicts = []
+    for x in list_of_tweets:
+        list_of_dicts += indicoio.emotion(x)
+
+    avg_dict = {}
+    for list_of_dicts[x] in list_of_dicts:
+        # make sad, and such
+        if x not in avg_dict:
+            avg_dict[x] = list_of_dicts[x]
+        else:
+            avg_dict[x] += list_of_dicts[x]
