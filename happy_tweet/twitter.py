@@ -1,8 +1,10 @@
-import tweepy
-import json
+# Todo: print(age)
 
-# todo: print(age)
-# The consumer keys and access tokens which are used
+import tweepy
+from happy_tweet.db import insert
+from happy_tweet.emotions import EmotionCalc
+
+# Twitter secrets
 CONSUMER_KEY = 'nQ09IRj8CzPCG1bxUIva3HSKW'
 CONSUMER_SECRET = 'CfAR02mGVYsnOcnb1DDOjgeYGLayyfwVqqFAtA8WBluc5Tpyeo'
 ACCESS_TOKEN = '1564136786-INIswUQ1fRFeIv8QhVDtBr6yGeRwP6sUdeUxkfm'
@@ -11,7 +13,6 @@ ACCESS_TOKEN_SECRET = '0BU8huIvlY7S94ed5s8muSqmlctf4w8aSv4hh6YRaMp6R'
 auth = tweepy.OAuthHandler(CONSUMER_KEY, CONSUMER_SECRET)
 auth.set_access_token(ACCESS_TOKEN, ACCESS_TOKEN_SECRET)
 api = tweepy.API(auth)
-
 
 
 class User:
@@ -30,15 +31,25 @@ class User:
     def get_tweets(self):
         tweets = api.user_timeline()
         tweets = [self.process_tweet(tweet) for tweet in tweets]
+        tweets = self.insert_tweet(tweets)
         return tweets
 
     def process_tweet(self, tweet):
         return {
             "time": tweet.created_at,
             "text": tweet.text,
-            "id": tweet.id,
-            "user_id": self.user_id
+            "_id": tweet.id,
+            "user_id": self.user_id,
+            "emotions": EmotionCalc.get_all_emotions(tweet.text)
         }
+
+    def insert_tweet(self, tweets):
+        user_timeline = {
+            '_id': "u_" + str(self.user_id),
+            'tweets': tweets
+        }
+        insert(user_timeline, 'tweets')
+        return user_timeline
 
 
 class Search:
