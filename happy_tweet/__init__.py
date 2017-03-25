@@ -3,6 +3,7 @@ from bson.json_util import dumps
 
 from happy_tweet.emotions import EmotionCalc
 from happy_tweet.twitter import User
+from happy_tweet.twitter import get_user
 
 app = Flask(__name__)
 
