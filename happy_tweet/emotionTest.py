@@ -27,7 +27,7 @@ def region_average_emo(region):
 
 if __name__ == '__main__':
     username_list = ["JMills21478", "Lynds_eey", "Duuuval", "Norphsidee", "beingmesince96", "april_aries17", "Moliblog",
-                     "_stayygorgeous", "JulioCN93", "Hipcheck1967", "SirAWilliams80", "His_SmokingGun",
+                     "_stayygorgeous", "JulioCN93", "Hipchec","k1967", "SirAWilliams80", "His_SmokingGun",
                      "elirosstheboss",
                      "ThiahArmani_", "MDCPS", "DannyEspinalHD", "ThiahArmani_", "ijump14", "_Whiitneey", "dominictw",
                      "yesimbby", ]
