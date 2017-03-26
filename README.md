@@ -9,28 +9,14 @@ You'll also be able to tell how other local Twitter users sound through their tw
 Happy Tweet is a project created to determine the emotional level of a text. It uses the Twitter API to pull in tweets
 from nearby accounts and calculates the appropriate emotion for the text using the Indico API.
 
-Dependencies
+# Resources Used
+- ReactJS
+- Flask
+- Python
+- Indico API (Emotion Detection)
+- Twitter API (tweepy)
+- Material UI from Google
+- MongoDB
 
-React frontend
-
-react and all of its friends
-firebase (for authentication)
-material-ui + react-tap-event-plugin
-Python backend
-
-pymongo
-flask
-How to use?
-
-Backend
-
-The server part is nearby.py, virtualenv is recomended. It was developed on python 3.5.2.
-
-pip install pymongo flask then python nearby.py
-
-Change the port and host configuration in the python file accordingly.
-
-Frontend
-
-npm install then npm start. That's i
+# How to Install:
 
