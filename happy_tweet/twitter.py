@@ -36,7 +36,8 @@ class User:
         self.insert_tweet({
             '_id': "u_" + str(self.user_id),
             'tweets': self.tweets,
-            'user': self.user._json
+            'username': self.username[1:],
+            'user': self.user._json,
         })
         return tweets
 
@@ -72,13 +73,22 @@ def get_user(username):
     :param username: Twitter handle
     :return: User object
     """
-    user = search({'username': username})
+    user = search({'username': username}, 'tweets') or "Not found"
+    return user
+
+
+def get_user_around(location="Boston"):
+    users = api.search_users("near:{location " + location + "}", 20, 1)
+    return users
+
 
 def test():
-    # Test with user '@gaspardetienne9'
-    u = User('@gaspardetienne9')
-    print(u.get_tweets())
-    u.get_data()
+    # # Test with user '@gaspardetienne9'
+    # u = User('@gaspardetienne9')
+    # print(u.get_tweets())
+    # u.get_data()
+    pass
+
 
 
 if __name__ == '__main__':
