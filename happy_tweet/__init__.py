@@ -28,13 +28,3 @@ def get_chart():
 
 if __name__ == "__main__":
     app.run(debug=True)
-    #username = input("What's your name, user?")
-    #subject = User(username) --> create primary user
-    #create n amount of other users to compare
-    #list_of_others = {}
-    # for x in username_list:
-    #   a = User(x)
-    #   list_of_others[x] = x["emotions"]
-    # what is completeed: user + his data; [usernames 1: emotion; ... n]
-    #
-

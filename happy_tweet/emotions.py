@@ -1,4 +1,5 @@
 import indicoio
+import sys
 
 indicoio.config.api_key = 'b2ff22240dc7532835daca4712d48bfb'
 
@@ -21,4 +22,10 @@ class EmotionCalc:
         :param tweet: A string of text
         :return: A dict of sentiments of that tweet
         """
-        return indicoio.emotion(tweet)
+        try:
+            r = indicoio.emotion(tweet)
+            return r
+        except:
+            e = str(sys.exc_info()[0])
+            print("Something wrong happened here: " + e)
+            return
