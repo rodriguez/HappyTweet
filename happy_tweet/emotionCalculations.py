@@ -21,7 +21,7 @@ def average_dict(d):
     rr = {}
     for k, v in r.items():
         rr[k] = sum(v)/len(v)*1.0
-    return rr
+    return max(rr, key=rr.get)
 
 
 def greatest_of_avg(d):
