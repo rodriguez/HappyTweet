@@ -11,4 +11,4 @@ if __name__ == '__main__':
         user = get_user(username)
         tweets = user['tweets']
         emotions = [tweet['emotions'] for tweet in tweets]
-    print(emotions)
+        print(emotions)

@@ -24,5 +24,8 @@ class EmotionCalc:
         """
         try:
             r = indicoio.emotion(tweet)
+            return r
         except:
-            print("Something wrong happened here: " + sys.exc_info()[0])
+            e = str(sys.exc_info()[0])
+            print("Something wrong happened here: " + e)
+            return
