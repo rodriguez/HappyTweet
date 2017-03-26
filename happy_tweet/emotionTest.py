@@ -9,7 +9,6 @@ def max_average_emo(username):
     return average_dict(merge_dict(emotions))
 
 if __name__ == '__main__':
-    other_emotions = {}
     username_list = ["JMills21478", "Lynds_eey", "Duuuval", "Norphsidee", "beingmesince96", "april_aries17", "Moliblog",
                      "_stayygorgeous", "JulioCN93", "Hipcheck1967", "SirAWilliams80", "His_SmokingGun",
                      "elirosstheboss",
@@ -27,6 +26,11 @@ if __name__ == '__main__':
             print("Error")
             continue
     print(r)
+    tally = [{'fear': 0, 'sadness': 0, 'joy': 0, 'anger': 0, 'surprise': 0 }]
+    for x in r:
+        tally[x] += 1
+    print(tally)
+
     # user = get_user(username_list[0])
     # tweets = user['tweets']
     # emotions = [tweet['emotions'] for tweet in tweets]
