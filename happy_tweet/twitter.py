@@ -46,7 +46,7 @@ class User:
 
     def process_tweet(self, tweet):
         return {
-            "time": tweet.created_at,
+            "time": tweet.created_at.strftime('%m/%d/%y'),
             "text": tweet.text,
             "_id": tweet.id,
             "user_id": self.user_id,
@@ -96,4 +96,5 @@ def get_users(region='Boston, Mass.'):
     return result
 
 if __name__ == '__main__':
-    test()
+    u = User('@gaspardetienne9')
+    print(u.process_tweet(u.get_tweets()[0]))
