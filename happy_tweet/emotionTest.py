@@ -28,9 +28,16 @@ if __name__ == '__main__':
     print(r)
     tally = [{'fear': 0, 'sadness': 0, 'joy': 0, 'anger': 0, 'surprise': 0 }]
     for x in r:
-        if x['emo'] in tally:
-            tally[x] = x['emo']
-    print(tally)
+        if r['emo'] == 'fear':
+            tally['fear'] += 1
+        elif r['emo'] == 'sadness':
+            tally['sadness'] += 1
+        elif r['emo'] == 'joy':
+            tally['joy'] += 1
+        elif r['emo'] == 'anger':
+            tally['anger'] += 1
+        else:
+            tally['surprise'] += 1
 
     # user = get_user(username_list[0])
     # tweets = user['tweets']
