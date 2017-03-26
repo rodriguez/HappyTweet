@@ -1,7 +1,7 @@
 import indicoio
 import sys
 
-indicoio.config.api_key = 'b2ff22240dc7532835daca4712d48bfb'
+indicoio.config.api_key = '7fcb9bf9ac1dc6d32c3efa1acb7637a8'
 
 
 class EmotionCalc:
