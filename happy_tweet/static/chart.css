@@ -1,0 +1,46 @@
+html {
+    background: scale-lightness(#0B353F, -30%);
+}
+
+.container {
+    width: 1280px;
+    margin: 0 auto;
+    overflow: auto;
+
+.title {
+    text-align: center;
+    color: #FFA500;
+}
+
+.title__link {
+    display: inline-block;
+    color: white;
+
+&
+:hover {
+    text-decoration: none;
+}
+
+}
+}
+
+.chart-demo {
+    float: left;
+    width: 640px;
+}
+
+@import url(http://fonts.googleapis.com/css?family=Lato);
+body {
+    font-family: 'Lato', sans-serif;
+    font-size: 14px;
+}
+
+.widget--3x1 {
+    width: 768px;
+    height: 256px;
+}
+
+.widget-content {
+    flex: 1;
+    padding: 20px;
+}

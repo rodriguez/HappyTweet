@@ -4,7 +4,7 @@ import tweepy
 from flask import json
 from flask.json import dumps
 
-from happy_tweet.db import insert, search
+from happy_tweet.db import insert, search, search_many
 from happy_tweet.emotions import EmotionCalc
 
 # Twitter secrets
@@ -19,10 +19,11 @@ api = tweepy.API(auth)
 
 
 class User:
-    def __init__(self, username):
+    def __init__(self, username, location=None):
         self.username = username
         self.user = api.get_user(username)
         self.user_id = self.user.id
+        self.location = location
 
     def get_data(self):
         """
@@ -39,6 +40,7 @@ class User:
             'tweets': self.tweets,
             'username': self.username[1:],
             'user': self.user._json,
+            'location': self.location,
         })
         return tweets
 
@@ -68,7 +70,7 @@ class Search:
     pass
 
 
-def get_user(username):
+def get_user(username, location=None):
     """
     If there is the user in the database, we will return that user, else error
     :param username: Twitter handle
@@ -76,16 +78,23 @@ def get_user(username):
     """
     result = search({'username': username}, 'tweets')
     if not result:
-        user = User("@{}".format(username))
+        user = User("@{}".format(username), location)
         user.get_tweets()
         return json.loads(user.to_json())
     else:
         return result
 
 
-def get_user_around(location="Boston"):
-    users = api.search_users("near:{location " + location + "}", 20, 1)
-    return users
+def get_users(region='Boston, Mass.'):
+    """
+    Get user by region
+    :param region: String to represent a region, e.g. Boston
+    :return: List of user dict of that region
+    """
+    result = search_many({'location': "Boston, Mass."}, 'tweets')
+    print("Got {} users".format(len(result)))
+    return result
+
 
 
 def test():

@@ -13,10 +13,14 @@
         <!-- Radar Chart -->
         <div class="chart">
             <h2 class="title">Radar Chart</h2>
-            <canvas id="radarChart" width="640" height="400"></canvas>
+            <canvas id="radarChart" width="640" height="400" style="background-color: black;"></canvas>
         </div>
     </div>
+    <link rel="stylesheet" src="/static/chart.css"/>
     <script type="text/javascript" src="/static/chart.js"></script>
+    <script type="text/javascript">
+        var data = JSON.parse('{{pydata|safe}}')
+    </script>
     <script type="text/javascript">
         var radarOptions = {
             //Boolean - Whether to show lines for each scale point
@@ -119,13 +123,9 @@
                 {
                     fillColor: "rgba(220,220,220,0.5)",
                     strokeColor: "rgba(220,220,220,1)",
-                    data: [65, 59, 90, 81, 56, 55, 40]
-                },
-                {
-                    fillColor: "rgba(151,187,205,0.5)",
-                    strokeColor: "rgba(151,187,205,1)",
-                    data: [28, 48, 40, 19, 96, 27, 100]
+                    data: [data['anger'], data['joy'], data['fear'], data['sadness'], data['surprise']]
                 }
+
             ]
         }
 
@@ -138,7 +138,7 @@
     </script>
     <div class='widget widget--3x1'>
         <div class='widget-content'>
-         <canvas height='160px' id='line' width='712px'></canvas>
+            <canvas height='160px' id='line' width='712px'></canvas>
         </div>
     </div>
 </body>

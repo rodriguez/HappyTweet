@@ -1,4 +1,6 @@
-from happy_tweet import get_user
+from flask import json
+
+from happy_tweet.twitter import get_user, get_users
 from happy_tweet.emo_calc import merge_dict, average_dict
 
 
@@ -7,6 +9,21 @@ def max_average_emo(username):
     tweets = user['tweets']
     emotions = [tweet['emotions'] for tweet in tweets]
     return average_dict(merge_dict(emotions))
+
+
+def region_average_emo(region):
+    users = get_users()
+    r = []
+    # Analisys for each user
+    for user in users:
+        try:
+            tweets = user['tweets']
+            emotions = [tweet['emotions'] for tweet in tweets]
+            r.append(average_dict(merge_dict(emotions)))
+        except:
+            print("Something is wrong here")
+            continue
+    return average_dict(merge_dict(r))
 
 if __name__ == '__main__':
     username_list = ["JMills21478", "Lynds_eey", "Duuuval", "Norphsidee", "beingmesince96", "april_aries17", "Moliblog",

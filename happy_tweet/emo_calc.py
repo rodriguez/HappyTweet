@@ -14,4 +14,5 @@ def average_dict(d):
     rr = {}
     for k, v in d.items():
         rr[k] = sum(v) / len(v) * 1.0
+    return rr
     return max(rr, key=rr.get)

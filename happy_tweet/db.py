@@ -14,3 +14,9 @@ def search(key, collection):
     col = db[collection]
     data = col.find_one(key)
     return data
+
+
+def search_many(key, collection):
+    col = db[collection]
+    data = col.find({"location": "Boston, Mass."})
+    return [x for x in data]
