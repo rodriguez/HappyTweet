@@ -1,6 +1,7 @@
 # Todo: print(age)
 
 import tweepy
+from flask import json
 from flask.json import dumps
 
 from happy_tweet.db import insert, search
@@ -77,7 +78,7 @@ def get_user(username):
     if not result:
         user = User("@{}".format(username))
         user.get_tweets()
-        return user.to_json()
+        return json.loads(user.to_json())
     else:
         return result
 
