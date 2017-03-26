@@ -1,5 +1,4 @@
 import indicoio
-from happy_tweet.twitter import User
 
 
 def individual_happiness(tweet_data):
@@ -29,20 +28,8 @@ def greatest_of_avg(d):
     return max(rr, key=rr.get)
 
 
-# def avg_emotion(user):
-#     ts = user.tweets
-#     if ts:
-#         tweets = ts
-#         tweet_emotions = []
-#         for tweet in tweets:
-#             tweet_emotions.append(tweet['emotions'])
-#         return tweet_emotions
-
 
 if __name__ == '__main__':
-    # u = User('@gaspardetienne9')
-    # u.get_tweets()
-    # print(avg_emotion(u))
     print(average_dict(
         [{"a": 2, "b": 3},
         {"a": 5, "b": 3},
