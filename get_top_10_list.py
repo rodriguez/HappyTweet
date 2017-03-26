@@ -22,7 +22,7 @@ class MyStreamListener(tweepy.StreamListener):
     def on_data(self, data):
         username = (json.loads(data)['user']['screen_name'])
         print(username)
-        i = 0;
+        i = 0
         while len(list_users) < 20:
             list_users.insert(i, username)
             i += 1

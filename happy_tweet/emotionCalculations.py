@@ -29,22 +29,14 @@ def greatest_of_avg(d):
     return max(rr, key=rr.get)
 
 
-def avg_emotion(user):
-    ts = user.tweets
-    if ts:
-        tweets =ts
-        tweet_emotions = []
-        for tweet in tweets:
-            tweet_emotions.append(tweet['emotions'])
-        return tweet_emotions
-"""
-def individual_happiness(tweets):
-    for tweet in tweets:
-        text = tweet['text']
-        emotion = emo_tweet(text)
-        tweet['emotion'] = emotion
-    return tweets
-"""
+# def avg_emotion(user):
+#     ts = user.tweets
+#     if ts:
+#         tweets = ts
+#         tweet_emotions = []
+#         for tweet in tweets:
+#             tweet_emotions.append(tweet['emotions'])
+#         return tweet_emotions
 
 
 if __name__ == '__main__':
