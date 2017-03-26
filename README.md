@@ -1,7 +1,7 @@
 # HappyTweet
 HackBeanpot Project
 
-![alt tag](/Arod15/HappyTweet/blob/master/happy_tweet_web/src/JRBB_logo.png?raw=true)
+![alt tag](Arod15/HappyTweet/blob/master/happy_tweet_web/src/JRBB_logo.png?raw=true)
 
 Ever wonder how happy you sound to others on Twitter? Or how sad? Or angry? Well, now you can use this Jackie Robinson
 Beanie Babies project to find out!
