@@ -1,6 +1,7 @@
 # Todo: print(age)
 
 import tweepy
+from flask import json
 from flask.json import dumps
 
 from happy_tweet.db import insert, search
@@ -74,7 +75,7 @@ def get_user(username):
     :return: User object
     """
     user = search({'username': username}, 'tweets') or "Not found"
-    return user
+    return json.loads(user)
 
 
 def get_user_around(location="Boston"):
