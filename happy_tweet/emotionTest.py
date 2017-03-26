@@ -28,7 +28,8 @@ if __name__ == '__main__':
     print(r)
     tally = [{'fear': 0, 'sadness': 0, 'joy': 0, 'anger': 0, 'surprise': 0 }]
     for x in r:
-        tally[x] += 1
+        if x['emo'] in tally:
+            tally[x] = x['emo']
     print(tally)
 
     # user = get_user(username_list[0])
