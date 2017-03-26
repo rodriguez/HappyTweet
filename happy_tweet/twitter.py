@@ -73,8 +73,13 @@ def get_user(username):
     :param username: Twitter handle
     :return: User object
     """
-    user = search({'username': username}, 'tweets') or "Not found"
-    return user
+    result = search({'username': username}, 'tweets')
+    if not result:
+        user = User("@{}".format(username))
+        user.get_tweets()
+        return user.to_json()
+    else:
+        return result
 
 
 def get_user_around(location="Boston"):
