@@ -28,7 +28,6 @@ def greatest_of_avg(d):
     return max(rr, key=rr.get)
 
 
-
 if __name__ == '__main__':
     print(average_dict(
         [{"a": 2, "b": 3},

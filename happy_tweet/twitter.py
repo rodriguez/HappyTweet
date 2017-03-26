@@ -95,16 +95,5 @@ def get_users(region='Boston, Mass.'):
     print("Got {} users".format(len(result)))
     return result
 
-
-
-def test():
-    # # Test with user '@gaspardetienne9'
-    # u = User('@gaspardetienne9')
-    # print(u.get_tweets())
-    # u.get_data()
-    pass
-
-
-
 if __name__ == '__main__':
     test()
