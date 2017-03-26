@@ -34,4 +34,6 @@ if __name__ == "__main__":
     # for x in username_list:
     #   a = User(x)
     #   list_of_others[x] = x["emotions"]
+    # what is completeed: user + his data; [usernames 1: emotion; ... n]
+    #
 
