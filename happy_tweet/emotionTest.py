@@ -7,8 +7,12 @@ if __name__ == '__main__':
                      "elirosstheboss",
                      "ThiahArmani_", "MDCPS", "DannyEspinalHD", "ThiahArmani_", "ijump14", "_Whiitneey", "dominictw",
                      "yesimbby", ]
-    for username in username_list:
-        user = get_user(username)
-        tweets = user['tweets']
-        emotions = [tweet['emotions'] for tweet in tweets]
-        print(emotions)
+    # for username in username_list:
+    #     user = get_user(username)
+    #     tweets = user['tweets']
+    #     emotions = [tweet['emotions'] for tweet in tweets]
+    #     print(emotions)
+    user = get_user(username_list[0])
+    tweets = user['tweets']
+    emotions = [tweet['emotions'] for tweet in tweets]
+    print(emotions)
