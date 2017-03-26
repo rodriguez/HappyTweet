@@ -1,4 +1,3 @@
-from happy_tweet import User
 from happy_tweet import get_user
 
 if __name__ == '__main__':
@@ -8,10 +7,8 @@ if __name__ == '__main__':
                      "elirosstheboss",
                      "ThiahArmani_", "MDCPS", "DannyEspinalHD", "ThiahArmani_", "ijump14", "_Whiitneey", "dominictw",
                      "yesimbby", ]
-    for x in username_list:
-        a = get_user(x)
-        other_emotions[x] = x['emotions']
-    print(other_emotions)
-
-
-
+    for username in username_list:
+        user = get_user(username)
+        tweets = user['tweets']
+        emotions = [tweet['emotions'] for tweet in tweets]
+    print(emotions)
