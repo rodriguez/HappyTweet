@@ -17,6 +17,7 @@ from nearby accounts and calculates the appropriate emotion for the text using t
 - Twitter API (tweepy)
 - Material UI from Google
 - MongoDB
+- HTML, CSS, JavaScript
 
 # How to Install:
 
