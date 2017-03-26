@@ -1,0 +1,58 @@
+{
+  "tweets": [
+    {
+      "_id": 700893941730779136,
+      "emotions": {
+        "anger": 0.054773777700000005,
+        "fear": 0.3867940307,
+        "joy": 0.2452879846,
+        "sadness": 0.1990250051,
+        "surprise": 0.1141192466
+      },
+      "text": "Registered for #hacksummit, a virtual event of top developers. Check it out! https://t.co/VplAIhZKnY",
+      "time": "Sat, 20 Feb 2016 04:05:12 GMT",
+      "user_id": 327675282
+    },
+    {
+      "_id": 675719811373113345,
+      "emotions": {
+        "anger": 0.1471274495,
+        "fear": 0.351033926,
+        "joy": 0.1467476785,
+        "sadness": 0.2868001461,
+        "surprise": 0.0682908148
+      },
+      "text": "@resilientcoders #HourOfCode https://t.co/fPgdcabBbW",
+      "time": "Sat, 12 Dec 2015 16:52:11 GMT",
+      "user_id": 327675282
+    },
+    {
+      "_id": 580476613403492354,
+      "emotions": {
+        "anger": 0.1847496927,
+        "fear": 0.1369516701,
+        "joy": 0.2287216634,
+        "sadness": 0.38979476690000003,
+        "surprise": 0.0597821809
+      },
+      "text": "@JSKuzma He host video on RSS on his own.",
+      "time": "Tue, 24 Mar 2015 21:09:44 GMT",
+      "user_id": 327675282
+    },
+    {
+      "_id": 441015923357810688,
+      "emotions": {
+        "anger": 0.1480817944,
+        "fear": 0.09042968600000001,
+        "joy": 0.10727640990000001,
+        "sadness": 0.35452169180000004,
+        "surprise": 0.2996904254
+      },
+      "text": "@1D_Heals That is what happen when your last tweet is more than 8 months ago",
+      "time": "Wed, 05 Mar 2014 01:02:44 GMT",
+      "user_id": 327675282
+    }
+  ],
+  "user_id": 327675282,
+  "username": "@zui_kun"
+}
