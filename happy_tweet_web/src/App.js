@@ -8,24 +8,38 @@ import 'es6-promise';
 import './App.css';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import TextField from 'material-ui/TextField';
-import {Router, Route, Link, IndexRoute, hashHistory, browserHistory} from 'react-router';
+import {
+    BrowserRouter as Router,
+    Route,
+    Link
+} from 'react-router-dom';
 
-class A extends Component {
+class App extends Component {
     render() {
         return (
-            <Router history={hashHistory}>
+            <Router>
                 <div>
-                    <Route path='/' component={App}/>
-                    <Route path='/address' component={Address}/>
+                    <Route path='/' component={Application}/>
+                    <Route path='/username' component={UserChart}/>
                 </div>
             </Router>
         )
     }
 }
 
+class UserChart extends Component {
+    constructor(props) {
+        super(props);
+    }
+
+    render() {
+        return (<div><h1>lol</h1></div>);
+    }
+}
+
 const Address = () => <h1>We are located at 555 Jackson St.</h1>
 
-class App extends Component {
+class Application extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -33,7 +47,7 @@ class App extends Component {
                 'labels': ["anger", "joy", "fear", "sadness", "surprise"],
                 'datasets': [
                     {
-                        data: [65, 59, 90, 81, 56]
+                        data: [0, 0, 0, 0, 0]
                     }
                 ]
             },
@@ -132,59 +146,41 @@ class App extends Component {
             },
             'username': 'Boston',
         };
-        this.loadData = this.loadData.bind(this);
         this.setData = this.setData.bind(this);
         this.changeSubject = this.changeSubject.bind(this);
     }
 
-    loadData() {
-        let labels = ["anger", "joy", "fear", "sadness", "surprise"];
-        let options = {
-            url: 'http://localhost:5000/region/average/boston',
-            method: 'GET',
-        };
-        request(options, function (error, resp, body) {
-            if (!error && resp.statusCode == 200) {
-                console.log(body);
-                let jsonData = JSON.parse(body);
-                this.setData({
-                    'chartData': {
-                        'labels': labels,
-                        'datasets': [
-                            {
-                                data: [7, 7, 7, 7, 7],
-                            }
-                        ]
-                    }
-                });
-            }
-            else
-                console.log(error);
-        });
-
-    }
 
     setData(json) {
-        let jsonData = json;
-        console.log(jsonData);
+        let r = json;
+        console.log(r);
+        this.setState({
+            "chartData": {
+                "labels": ["anger", "joy", "fear", "sadness", "surprise"],
+                "datasets": [
+                    {
+                        'data': [
+                            r.anger,
+                            r.joy,
+                            r.fear,
+                            r.sadness,
+                            r.surprise,
+                        ],
+                    }
+                ]
+            }
+        });
+        this.forceUpdate();
     }
 
     componentDidMount() {
-        // this.loadData();
+        let a = this.state.chartData;
         fetch("http://localhost:5000/region/average/boston")
             .then(resp => resp.json())
             .then(json => {
                 let r = json;
-                this.setState({
-                    "chartData": {
-                        "labels": ["anger", "joy", "fear", "sadness", "surprise"],
-                        "datasets": [
-                            {
-                                'data': [r['anger'], r['joy'], r['fear'], r['sadness'], r['surprise']]
-                            }
-                        ]
-                    }
-                });
+                this.setData(r);
+
             });
     }
 
@@ -192,20 +188,18 @@ class App extends Component {
         this.setState({
             'username': username,
         });
+        this.setData({
+            "anger": 0,
+            "fear": 0,
+            "joy": 0,
+            "sadness": 0,
+            "surprise": 0,
+        })
         fetch("http://localhost:5000/analyze/average/" + username)
             .then(resp => resp.json())
             .then(json => {
                 let r = json;
-                this.setState({
-                    "chartData": {
-                        "labels": ["anger", "joy", "fear", "sadness", "surprise"],
-                        "datasets": [
-                            {
-                                'data': [r['anger'], r['joy'], r['fear'], r['sadness'], r['surprise']]
-                            }
-                        ]
-                    }
-                });
+                this.setData(r);
             });
     }
 
@@ -217,10 +211,10 @@ class App extends Component {
                     <UsernameBox changeSubject={this.changeSubject}/>
                 </div>
                 <p className="App-intro">
-                    <h2>This is the emotion of {this.state.username}</h2>
+                    <h2>These are the emotions of {this.state.username}</h2>
                     <div className="chart">
                         <Radar data={this.state.chartData} options={this.state.chartOptions} width="666px"
-                               height="666px"/>
+                               height="666px" redraw/>
                     </div>
                 </p>
             </div>
@@ -250,10 +244,14 @@ class UsernameBox extends Component {
     }
 
     render() {
-        return (<div className="username-box">
+        return (<div >
             <form onSubmit={this.handleSubmit} style={{flex: 1}}>
                 <MuiThemeProvider>
-                    <TextField placeholder="@" value={this.state.username} onChange={this.handleInputChange}/>
+                    <input placeholder="@" value={this.state.username} onChange={this.handleInputChange} style={{
+                        color: 'black',
+                        fontSize: 30,
+                        marginTop: 10,
+                    }}/>
                 </MuiThemeProvider></form>
         </div>);
     }

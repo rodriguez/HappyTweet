@@ -7,10 +7,6 @@
     height: 200px;
 }
 
-.App-logo:hover {
-    transform: scale(2);
-}
-
 .App-header {
     background-color: #222;
     padding: 20px;
@@ -29,13 +25,15 @@
         transform: rotate(360deg);
     }
 }
-
 .chart {
     padding-top: 10px;
     background-color: #ffffff;
 }
-
 body {
     background-color: #222;
     color: paleturquoise;
+}
+
+.username-box {
+    font-size: 30px;
 }

@@ -12,6 +12,7 @@
     "react-chartjs": "^0.8.0",
     "react-dom": "^15.4.2",
     "react-router": "^4.0.0",
+    "react-router-dom": "^4.0.0",
     "react-tap-event-plugin": "^2.0.1",
     "request": "^2.81.0"
   },
